@@ -1,5 +1,17 @@
 # nettyRpc
 
+##运用到以下技术
+
+Spring
+
+Netty
+
+Protostuff  基于protobuf序列化框架
+
+Zookeeper
+
+##目录介绍
+
 rpc-client 服务消费方调用------------------在zookeeper上查找服务所在的主机，并发起请求
 
 rpc-common 服务传输协议以及编解码
