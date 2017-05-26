@@ -39,16 +39,16 @@ rpc-server 服务生产方调用。----------------服务的注解标示，以�
 
 #maven pom.xml
 
-  <dependency>
-      <groupId>com.goutrip.rpc</groupId>
-  	  <artifactId>rpc-client</artifactId>
-  	  <version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-       <groupId>com.goutrip.rpc</groupId>
-       <artifactId>rpc-server</artifactId>
-  	   <version>0.0.1-SNAPSHOT</version>
-    </dependency>
+	<dependency>
+		<groupId>com.goutrip.rpc</groupId>
+		<artifactId>rpc-client</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+       		<groupId>com.goutrip.rpc</groupId>
+       		<artifactId>rpc-server</artifactId>
+       		<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
 
 
 #二编写服务接口的实现类
@@ -69,19 +69,19 @@ rpc-server 服务生产方调用。----------------服务的注解标示，以�
 	}
 #配置服务端
 
-<beans ...>
-    <context:component-scan base-package="com.goutrip.rpc.test.customer"/>
-    <context:property-placeholder location="classpath:rpc.properties"/>
+	<beans ...>
+	    <context:component-scan base-package="com.goutrip.rpc.test.customer"/>
+	    <context:property-placeholder location="classpath:rpc.properties"/>
 
-    <bean id="serviceRegistry" class="com.goutrip.rpc.registry.zookeeper.ZookeeperServiceRegistry">
-	<constructor-arg name="zkAddress" value="${rpc.registry_address}"/>
-    </bean>
+	    <bean id="serviceRegistry" class="com.goutrip.rpc.registry.zookeeper.ZookeeperServiceRegistry">
+		<constructor-arg name="zkAddress" value="${rpc.registry_address}"/>
+	    </bean>
 
-    <bean id="rpcServer" class="com.goutrip.rpc.server.RpcServer">
-	<constructor-arg name="serviceAddress" value="${rpc.service_address}"/>
-	<constructor-arg name="serviceRegistry" ref="serviceRegistry"/>
-    </bean>
-</beans>
+	    <bean id="rpcServer" class="com.goutrip.rpc.server.RpcServer">
+		<constructor-arg name="serviceAddress" value="${rpc.service_address}"/>
+		<constructor-arg name="serviceRegistry" ref="serviceRegistry"/>
+	    </bean>
+	</beans>
 
 具体的配置参数在rpc.properties文件中，内容如下：
 
@@ -91,16 +91,17 @@ rpc-server 服务生产方调用。----------------服务的注解标示，以�
 服务端 Spring 配置文件名为spring.xml，内容如下：
 
 #maven pom.xml
-   <dependency>
-      <groupId>com.goutrip.rpc</groupId>
-  	  <artifactId>rpc-client</artifactId>
-  	  <version>0.0.1-SNAPSHOT</version>
-   </dependency>
-   <dependency>
-       <groupId>com.goutrip.rpc</groupId>
-       <artifactId>rpc-server</artifactId>
-       <version>0.0.1-SNAPSHOT</version>
-   </dependency>
+	
+	<dependency>
+		<groupId>com.goutrip.rpc</groupId>
+		<artifactId>rpc-client</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+		<groupId>com.goutrip.rpc</groupId>
+		<artifactId>rpc-server</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
    
 #启动服务器并发布服务
 
@@ -157,18 +158,18 @@ rpc-server 服务生产方调用。----------------服务的注解标示，以�
 	
 #maven pom.xml
 
- <dependency>
-      <groupId>com.goutrip.rpc</groupId>
-  	  <artifactId>rpc-client</artifactId>
-  	  <version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-       <groupId>com.goutrip.rpc</groupId>
-       <artifactId>rpc-server</artifactId>
-  	   <version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-       <groupId>com.goutrip.test</groupId>
-       <artifactId>rpc-test-api</artifactId>
-  	   <version>0.0.1-SNAPSHOT</version>
-    </dependency>
+ 	<dependency>
+	      	<groupId>com.goutrip.rpc</groupId>
+	  	<artifactId>rpc-client</artifactId>
+	  	<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
+	<dependency>
+	       <groupId>com.goutrip.rpc</groupId>
+	       <artifactId>rpc-server</artifactId>
+	   	<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+	       <groupId>com.goutrip.test</groupId>
+	       <artifactId>rpc-test-api</artifactId>
+	   	<version>0.0.1-SNAPSHOT</version>
+    	</dependency>
