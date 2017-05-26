@@ -68,16 +68,9 @@ rpc-server 服务生产方调用。----------------服务的注解标示，以�
 
 	}
 #配置服务端
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="com.goutrip.rpc.test.customer"/>
 
+<beans ...>
+    <context:component-scan base-package="com.goutrip.rpc.test.customer"/>
     <context:property-placeholder location="classpath:rpc.properties"/>
 
     <bean id="serviceRegistry" class="com.goutrip.rpc.registry.zookeeper.ZookeeperServiceRegistry">
@@ -143,26 +136,19 @@ rpc-server 服务生产方调用。----------------服务的注解标示，以�
 
 同样使用 Spring 配置文件来配置 RPC 客户端，spring.xml代码如下：
 
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
-       
-    <context:property-placeholder location="classpath:rpc.properties"/>
+	<beans ..>
 
-    <bean id="serviceDiscovery" class="com.goutrip.rpc.registry.zookeeper.ZooKeeperServiceDiscovery">
-        <constructor-arg name="zkAddress" value="${rpc.registry_address}"/>
-    </bean>
+	    <context:property-placeholder location="classpath:rpc.properties"/>
 
-    <bean id="rpcProxy" class="com.goutrip.rpc.client.RpcProxy">
-        <constructor-arg name="serviceDiscovery" ref="serviceDiscovery"/>
-    </bean>
+	    <bean id="serviceDiscovery" class="com.goutrip.rpc.registry.zookeeper.ZooKeeperServiceDiscovery">
+		<constructor-arg name="zkAddress" value="${rpc.registry_address}"/>
+	    </bean>
 
-</beans>
+	    <bean id="rpcProxy" class="com.goutrip.rpc.client.RpcProxy">
+		<constructor-arg name="serviceDiscovery" ref="serviceDiscovery"/>
+	    </bean>
+
+	</beans>
 
 具体rpc.properties.内容如下:
 
