@@ -43,12 +43,12 @@ rpc-server 服务生产方调用。----------------服务的注解标示，以�
 		<groupId>com.goutrip.rpc</groupId>
 		<artifactId>rpc-client</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-    	</dependency>
-    	<dependency>
-       		<groupId>com.goutrip.rpc</groupId>
-       		<artifactId>rpc-server</artifactId>
-       		<version>0.0.1-SNAPSHOT</version>
-    	</dependency>
+	</dependency>
+	<dependency>
+		<groupId>com.goutrip.rpc</groupId>
+		<artifactId>rpc-server</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
 
 
 #二编写服务接口的实现类
