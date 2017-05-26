@@ -164,12 +164,12 @@ rpc-server 服务生产方调用。----------------服务的注解标示，以�
 	  	<version>0.0.1-SNAPSHOT</version>
     	</dependency>
 	<dependency>
-	       <groupId>com.goutrip.rpc</groupId>
-	       <artifactId>rpc-server</artifactId>
-	   	<version>0.0.1-SNAPSHOT</version>
+       		<groupId>com.goutrip.rpc</groupId>
+       		<artifactId>rpc-server</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
     	</dependency>
     	<dependency>
-	       <groupId>com.goutrip.test</groupId>
-	       <artifactId>rpc-test-api</artifactId>
+       		<groupId>com.goutrip.test</groupId>
+       		<artifactId>rpc-test-api</artifactId>
 	   	<version>0.0.1-SNAPSHOT</version>
     	</dependency>
